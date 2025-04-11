@@ -7,7 +7,11 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://ton-frontend.vercel.app', // le domaine Vercel ou localhost
+  credentials: true // si tu utilises des cookies ou headers d’auth
+}));
+
 app.use(express.json());
 
 // Connexion à la base de données SQLite
