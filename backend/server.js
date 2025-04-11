@@ -10,9 +10,9 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Connexion à la base de données SQLite (en lecture)
+// Connexion à la base de données SQLite
 const dbPath = path.join(__dirname, 'database.db');
-const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error('❌ Erreur lors de la connexion à SQLite :', err.message);
   } else {
@@ -33,6 +33,10 @@ app.get('/api/poubelles', (req, res) => {
     res.json(rows);
   });
 });
+
+// Suppression de l'authentification
+// Suppression de l'endpoint POST /api/login
+// Suppression du middleware authenticateToken
 
 // Démarrage du serveur
 app.listen(PORT, () => {
