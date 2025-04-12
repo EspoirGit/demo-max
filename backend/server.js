@@ -12,8 +12,6 @@ app.use(cors({
   credentials: true // si tu utilises des cookies ou headers d’auth
 }));
 
-app.use(cors({  origin: ['http://localhost:3000', 'https://friareiot.vercel.app'] })); // Remplacez par l'URL de votre frontend
-
 app.use(express.json());
 
 // Connexion à la base de données SQLite
