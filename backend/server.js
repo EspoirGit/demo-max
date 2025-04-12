@@ -8,11 +8,10 @@ const PORT = 3000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://friareiot.vercel.app', // le domaine Vercel ou localhost
+  origin: ['http://localhost:3000', 'https://votre-domaine-frontend.com'], // le domaine Vercel ou localhost
   credentials: true // si tu utilises des cookies ou headers d’auth
 }));
 
-app.use(cors({  origin: ['http://localhost:3000', 'https://friareiot.vercel.app'] })); // Remplacez par l'URL de votre frontend
 
 app.use(express.json());
 
